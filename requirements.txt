@@ -1,5 +1,6 @@
 langgraph==0.6.10
 langchain-openai==0.3.35
+langchain-google-genai==2.1.12
 langchain-core==0.3.79
 qdrant-client==1.15.1
 streamlit==1.50.0
