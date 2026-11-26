@@ -1,9 +1,11 @@
 - Use Python 3.11+ and pin app/test dependencies in requirements.txt.
-- Generate 180 synthetic reports across six planted patterns and miscellaneous cases; no external NHTSA download is required.
+- Generate 180 synthetic reports across six planted patterns and miscellaneous cases; skip the optional NHTSA download to keep setup reproducible and offline.
 - Use Qdrant embedded storage and deterministic signed feature-hash vectors for offline repeatable retrieval.
-- Support environment variables and Streamlit Secrets for the OpenAI API key and model.
+- Use `GEMINI_API_KEY` and `GEMINI_MODEL` for Gemini Developer API access; accept `GOOGLE_API_KEY` as a compatibility alias and read Streamlit secrets when present.
+- Use LangChain's `ChatGoogleGenerativeAI` structured output for Gemini analysis and cited-evidence support checks.
+- Keep demo mode key-free and deterministic; a configured Gemini key must not silently fall back to demo responses if the live provider fails.
 - Keep one report per retrieval point and preserve the original report as source text and citation metadata.
 - Use a Python citation allow-list and bounded LLM/support validation with at most two retries.
 - Use SQLite for human decisions and preserve original/edited claims, comment, and timestamp.
-- Keep demo mode key-free and deterministic; live provider calls require explicit credentials.
 - Skip FastAPI, Docker, authentication, and multi-user features to remain small.
+- Report only measured evaluation results; offline checks do not prove live Gemini behavior.
